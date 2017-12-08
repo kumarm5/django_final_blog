@@ -1,0 +1,164 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar{
+    background-color: #000;    
+}
+
+.navbar a {
+    color: #fff;
+}
+
+
+.banner{
+    background-image: url('/static/images/banner.jpg');
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;    
+}
+
+.banner_content{
+    padding: 50px;        
+}
+
+.banner_content h2{
+    color: #fff;
+}
+
+.category {
+    background: #F83A3A;
+    display: inline-block;
+    text-transform: uppercase;
+    border-radius: 4px;
+    font-size: 10.5px;
+    color: #FFFFFF;
+    padding: 3px 10px;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+
+.post_information {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.post_information li a, .post_information li time{
+    color: #FFFFFF;
+}
+
+.post_information li {    
+    display: inline-block;
+    margin-right: 13px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.post_information li i {
+    float: left;
+    color: #F83A3A;
+    margin-right: 7px;
+    top: 2px;
+    position: relative;
+}
+
+.card_container{    
+    float: left;    
+}
+
+.card {
+    border: none;
+    border-radius: none;
+}
+
+.card-title{
+    color: #212529;
+}
+
+.card-title:hover{
+    text-decoration: none;
+    color: #F83A3A;
+}
+
+.card-img-top {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.card_container .post_information li a, .card_container .post_information li time{
+    color: #999 !important;
+}
+
+.sidebar{
+    border-left: 1px solid #E1E1E1;
+}
+
+
+.widget-title {
+    position: relative;
+}
+
+
+
+.widget-content h2 {
+    font-size: 14px;
+    margin: 0px;    
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.footer{
+    margin-top: 50px;
+    background-color: #333;
+    padding: 10px;
+    background-image: url('/static/images/line-pattern.png');
+}
+
+.footer_section{    
+    float: left;
+    padding: 10px;
+}
+
+.footer_section h3{
+    color: #fff;
+}
+
+.footer_section p{
+    color: #999;
+}
+
+.footer_section a{
+    text-decoration: none;    
+}
+
+.footer_news{
+    color: #999;
+}
+
+.footer_news:hover{
+    color: #fff;
+}
+
+.navbar-footer{
+    color: #fff;
+}
+
+
+.footer_section .form-control, .footer_section .btn{
+    border-radius: 0px;
+}
+
+.blog_description p:not(:first-child) {
+    display: none;
+}
+
+.blog_description p{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+

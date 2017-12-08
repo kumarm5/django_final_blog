@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br>
+                <p class="text-danger"><i>Thoughts, stories and ideas.</i></p>
+                <hr>
+            </div>
+        </div>
+
+                
+        <div class="row">
+            <div class="col-md-9">
+                
+                <h2 class="text-center">{{ post_detail.title }}</h2>
+
+                <div class="post_image">
+                    <img src="{{ post_detail.post_image.url }}" class="mx-auto d-block img-fluid">
+                </div>
+
+                <div class="post_description">
+                    <br>
+                    {% autoescape off %}
+                        <p>{{ post_detail.description }}</p>
+                    {% endautoescape %}
+                </div>
+            </div>
+
+            <div class="col-md-3 sidebar">
+            
+                <div class="widget_content">
+                    <div class="widget-title">
+                        <h4>About Me</h4>
+                    </div>
+                    <div class="widget-content">
+                        <img src="{% static 'images/img_profile.jpg' %}" class="img-fluid">
+                        <h2><a href="#" class="category">Abc Xyz</a></h2>
+                        <p>Suspendisse auctor, elit sed aux el maximus volutpat. Mauris ac augue lacus. Suspendisse..</p>
+                    </div>
+                </div>
+                
+                <hr>
+
+                <div class="widget_content">
+                    <div class="widget-title">
+                        <h4>Latest Post</h4>
+                    </div>
+                    <div class="widget-content">
+                        <img src="{% static 'images/banner.jpg' %}" class="img-fluid">
+                        <h2><a href="#" class="category">TRAVEL</a></h2>
+                        <p>Unique Pieces In Your Home Decor Is A Fabulous Way To Add Character</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+            
+    </div>
+{% endblock %}
