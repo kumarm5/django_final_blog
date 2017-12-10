@@ -10,7 +10,6 @@ body{
     color: #fff;
 }
 
-
 .banner{
     background-image: url('/static/images/banner.jpg');
     background-position: 50%;
@@ -162,3 +161,15 @@ body{
     -webkit-box-orient: vertical;
 }
 
+
+@media screen and (min-width: 480px) {
+    .dropdown-menu a{
+        color: #000;
+    }
+        
+    .dropdown-menu{
+        margin-top: 8px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }    
+}

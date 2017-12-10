@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br>
+                <p class="text-danger"><i>Thoughts, stories and ideas.</i></p>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <h5 class="text-center">Category: {{ tag_detail.tag_name }}</h5>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-9">
+                
+                {% for blogdetail in blogdetails %}
+                    <div class="col-md-4 card_container">
+                        <div class="card">
+                            <img class="card-img-top" src="{{ blogdetail.post_image.url }}" alt="Card image cap">
+                            <div class="card-body">
+                                <h4><a href="{{ blogdetail.id }}/" class="card-title">{{ blogdetail.title }}</a></h4>
+                                
+                                {% autoescape off %}
+                                    <div class="card-text blog_description">{{ blogdetail.description }}</div>
+                                {% endautoescape %}
+                                
+                                <ul class="post_information">
+                                    <li><i class="fa fa-user"></i><a href="#">{{ blogdetail.user }}</a></li>
+                                    <li><i class="fa fa-calendar"></i>
+                                        <time class="post-date" datetime="2017-11-11">{{ blogdetail.created_at|date:'d/m/Y' }}</time>
+                                    </li>
+                                    <li><i class="fa fa-comment"></i><a href="#" data-disqus-identifier="ghost-18">1 Comment</a></li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="col-md-3 sidebar">
+                
+                <div class="widget_content">
+                    <div class="widget-title">
+                        <h4>About Me</h4>
+                    </div>
+                    <div class="widget-content">
+                        <img src="{% static 'images/img_profile.jpg' %}" class="img-fluid">
+                        <h2><a href="#" class="category">Mukul Kumar</a></h2>
+                        <p>Suspendisse auctor, elit sed aux el maximus volutpat. Mauris ac augue lacus. Suspendisse..</p>
+                    </div>
+                </div>
+                
+                <hr>
+
+                <div class="widget_content">
+                    <div class="widget-title">
+                        <h4>Latest Post</h4>
+                    </div>
+                    <div class="widget-content">
+                        <img src="{% static 'images/banner.jpg' %}" class="img-fluid">
+                        <h2><a href="#" class="category">TRAVEL</a></h2>
+                        <p>Unique Pieces In Your Home Decor Is A Fabulous Way To Add Character</p>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+{% endblock %}

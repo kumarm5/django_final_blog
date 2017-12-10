@@ -6,8 +6,9 @@ import pdb
 # Create your views here.
 class Home(TemplateView):
     def get(self, request, **kwargs):        
-        blogdetails = Blog.objects.all()        
-        return render(request, self.template_name, {'blogdetails': blogdetails})
+        tagdetails = Tags.objects.all()
+        blogdetails = Blog.objects.all()
+        return render(request, self.template_name, {'blogdetails': blogdetails, 'tagdetails': tagdetails})
 
 class Post(TemplateView):
     def get(self, request, **kwargs):
@@ -15,9 +16,31 @@ class Post(TemplateView):
         try:
             post_detail = Blog.objects.get(pk=post_id)
         except:
-            post_detail = None
-        return render(request, self.template_name, { 'post_detail': post_detail })
+            post_detail = None        
+        tagdetails = Tags.objects.all()
+        return render(request, self.template_name, { 'post_detail': post_detail, 'tagdetails': tagdetails })
 
 class About(TemplateView):
     def get(self, request, **kwargs):
-        return render(request, self.template_name, {})
+        tagdetails = Tags.objects.all()
+        return render(request, self.template_name, { 'tagdetails': tagdetails })
+
+class Contact(TemplateView):
+    def get(self, request, **kwargs):
+        tagdetails = Tags.objects.all()
+        return render(request, self.template_name, { 'tagdetails': tagdetails })
+
+
+class Tag(TemplateView):
+    def get(self, request, **kwargs):
+        tagdetails = Tags.objects.all()
+        tag_id = int(kwargs['tag_id'])
+
+        try:
+            tag_detail = Tags.objects.get(pk=tag_id)
+        except:
+            tag_detail = None
+
+        blogdetails = Blog.objects.filter(tag_id=tag_id)        
+        return render(request, self.template_name, { 'tagdetails': tagdetails, 'blogdetails': blogdetails, 'tag_detail': tag_detail })
+

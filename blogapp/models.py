@@ -23,8 +23,7 @@ class Blog(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     description = models.TextField(blank=False, null=False)
-    # description = RichTextField(('Content of Post'))
-
+    
     def __str__(self):
         return self.title
 

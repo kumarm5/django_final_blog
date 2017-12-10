@@ -10,7 +10,9 @@
 			<meta name="keywords" content="Blog"/>
 			<meta name="author" content=""/>
 
-			<title>Blog</title>
+            {% block title %}
+			    <title>Blog</title>
+            {% endblock %}
 
 			<link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
 			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -35,10 +37,25 @@
 
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
-                        <a class="nav-item nav-link active" href="/blog">Home <span class="sr-only">(current)</span></a>
-                        <a class="nav-item nav-link" href="/blog/about">About me</a>
-                        <a class="nav-item nav-link" href="#">Tags</a>
-                        <a class="nav-item nav-link" href="#">Contact</a>                        
+                        <li class="nav-item">
+                            <a class="nav-link active" href="/blog">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tags
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {% for tagdetail in tagdetails %}
+                                    <a class="dropdown-item" href="/blog/tag/{{ tagdetail.id }}/">{{ tagdetail.tag_name }}</a>
+                                {% endfor %}
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-item nav-link" href="/blog/about">About me</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/blog/contact">Contact</a>
+                        </li>
                     </div>
                 </div>
                 
