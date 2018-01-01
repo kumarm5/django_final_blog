@@ -1,6 +1,6 @@
 from django import forms
 from .models import *
-from ckeditor.widgets import CKEditorWidget
+# from ckeditor.widgets import CKEditorWidget
 
 class TagForm(forms.ModelForm):
     
@@ -27,7 +27,7 @@ class TagForm(forms.ModelForm):
 
     
 class BlogForm(forms.ModelForm):
-    description = forms.CharField(widget=CKEditorWidget())
+    # description = forms.CharField(widget=CKEditorWidget())
     def __init__(self, *args, **kwargs):
         self.request = kwargs.pop('request', None)
         super(BlogForm, self).__init__(*args, **kwargs)
@@ -44,5 +44,5 @@ class BlogForm(forms.ModelForm):
             'post_image': forms.FileInput(attrs={'class':'form-control'}),
             'tag': forms.Select(attrs={'class': 'form-control'}),         
             'user': forms.Select(attrs={'class': 'form-control'}),            
-            # 'description': forms.Textarea(attrs={'class':'form-control','rows':'2'}),
+            'description': forms.Textarea(attrs={'class':'form-control','rows':'6', 'cols': '70'}),
         }
