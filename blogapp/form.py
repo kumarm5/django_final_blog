@@ -45,4 +45,5 @@ class BlogForm(forms.ModelForm):
             'tag': forms.Select(attrs={'class': 'form-control'}),         
             'user': forms.Select(attrs={'class': 'form-control'}),            
             'description': forms.Textarea(attrs={'class':'form-control','rows':'6', 'cols': '70'}),
+            'short_description': forms.Textarea(attrs={'class': 'form-control', 'rows':'3', 'cols': '70'}),
         }

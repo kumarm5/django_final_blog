@@ -13,7 +13,7 @@ admin.site.register(Tags, TagsAdmin)
 
 
 class BlogAdmin(admin.ModelAdmin):
-    fields = (('title', 'post_image'), ('tag', 'user'), ('description'))
+    fields = (('title', 'post_image'), ('tag', 'user'), ('description',), ('short_description'),)
     form = BlogForm
     list_display = ('title', 'tag', 'user')
     search_fields = (('title', 'tag'),)

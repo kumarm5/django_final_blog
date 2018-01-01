@@ -27,7 +27,7 @@
                         <div class="card">
                             <img class="card-img-top" src="{{ blogdetail.post_image.url }}" alt="Card image cap">
                             <div class="card-body">
-                                <h4><a href="{{ blogdetail.id }}/" class="card-title">{{ blogdetail.title }}</a></h4>
+                                <h4><a href="{% url 'post' post_id=blogdetail.id %}" class="card-title">{{ blogdetail.title }}</a></h4>
                                 
                                 {% autoescape off %}
                                     <div class="card-text blog_description">{{ blogdetail.description }}</div>
@@ -56,7 +56,7 @@
                     </div>
                     <div class="widget-content">
                         <img src="{% static 'images/img_profile.jpg' %}" class="img-fluid">
-                        <h2><a href="#" class="category">Mukul Kumar</a></h2>
+                        <h2><a href="#" class="category sidebar-btn">Mukul Kumar</a></h2>
                         <p>Suspendisse auctor, elit sed aux el maximus volutpat. Mauris ac augue lacus. Suspendisse..</p>
                     </div>
                 </div>
@@ -69,14 +69,12 @@
                     </div>
                     <div class="widget-content">
                         <img src="{% static 'images/banner.jpg' %}" class="img-fluid">
-                        <h2><a href="#" class="category">TRAVEL</a></h2>
+                        <h2><a href="#" class="category sidebar-btn">TRAVEL</a></h2>
                         <p>Unique Pieces In Your Home Decor Is A Fabulous Way To Add Character</p>
                     </div>
                 </div>
 
-            </div>
-            
+            </div>            
         </div>
-
     </div>
 {% endblock %}

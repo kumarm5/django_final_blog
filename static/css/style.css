@@ -150,17 +150,16 @@ body{
     border-radius: 0px;
 }
 
-.blog_description p:not(:first-child) {
-    display: none;
-}
-
 .blog_description p{
     overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 
+.sidebar-btn{
+    margin-top: 5px;
+}
 
 @media screen and (min-width: 480px) {
     .dropdown-menu a{

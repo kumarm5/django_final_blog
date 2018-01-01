@@ -18,12 +18,13 @@ class Tags(models.Model):
 class Blog(models.Model):
     title = models.CharField(max_length=100, blank=False, null=False)
     post_image = models.ImageField(upload_to = 'post_img/', default = 'post_img/post.png', blank=True, null=True)
-    tag = models.ForeignKey('Tags', models.DO_NOTHING)
+    tag = models.ForeignKey(Tags, models.DO_NOTHING)
     user = models.ForeignKey(User, models.DO_NOTHING)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     description = models.TextField(blank=False, null=False)
-    
+    short_description = models.TextField(blank=False, null=False)
+
     def __str__(self):
         return self.title
 
