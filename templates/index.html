@@ -15,7 +15,7 @@
             <div class="col-md-12">
                 <div class="banner">                    
                     <div class="col-md-9 banner_content">
-                        <a href="#" class="category sidebar-btn">{{ latestblog.title }}</a>
+                        <a href="{% url 'post' post_id=latestblog.id %}" class="category sidebar-btn">{{ latestblog.title }}</a>
                         <p>&nbsp;</p>
                         {% autoescape off %}
                             <h2>{{ latestblog.short_description }}</h2>
