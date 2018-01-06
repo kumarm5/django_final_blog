@@ -165,11 +165,23 @@ a:hover{
     text-decoration: none;    
 }
 
-@media screen and (min-width: 480px) {
-    .dropdown-menu a{
-        color: #000;
-    }
-        
+.dropdown-menu{
+    background-color: #000;
+}
+
+.dropdown-menu a{
+    color: #fff;
+}
+
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+@media screen and (min-width: 480px) {        
     .dropdown-menu{
         margin-top: 8px;
         border-top-left-radius: 0px;

@@ -46,7 +46,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 {% for tagdetail in tagdetails %}
-                                    <a class="dropdown-item" href="{% url 'tags' tag_id=tagdetail.id %}">{{ tagdetail.tag_name }}</a>
+                                    <a class="dropdown-item" href="{% url 'tags' tag_id=tagdetail.id %}">{{ tagdetail.tag_name }}</a>                                    
                                 {% endfor %}
                             </div>
                         </li>
