@@ -55,7 +55,7 @@
                     </div>
                     <div class="widget-content">
                         <img src="{% static 'images/img_profile.jpg' %}" class="img-fluid">
-                        <h2><a href="#" class="category sidebar-btn">Mukul Kumar</a></h2>
+                        <h2><a href="{% url 'about' %}" class="category sidebar-btn">Mukul Kumar</a></h2>
                         <p>My name is Mukul Kumar, I'm a software developer and researcher from India. At the moment, I'm living in Pune..</p>
                     </div>
                 </div>
@@ -67,9 +67,11 @@
                         <h4>Latest Post</h4>
                     </div>
                     <div class="widget-content">
-                        <img src="{% static 'images/banner.jpg' %}" class="img-fluid">
-                        <h2><a href="#" class="category sidebar-btn">TRAVEL</a></h2>
-                        <p>Unique Pieces In Your Home Decor Is A Fabulous Way To Add Character</p>
+                        <img src="{{ latestblog.post_image.url }}" class="img-fluid">                    
+                        <h2><a href="{% url 'post' post_id=latestblog.id %}" class="category sidebar-btn">{{ latestblog.title }}</a></h2>
+                        {% autoescape off %}
+                            <p>{{ latestblog.short_description }}</p>
+                        {% endautoescape %}
                     </div>
                 </div>
 

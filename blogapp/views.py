@@ -8,7 +8,10 @@ class Home(TemplateView):
     def get(self, request, **kwargs):        
         tagdetails = Tags.objects.all()
         blogdetails = Blog.objects.all()
-        return render(request, self.template_name, {'blogdetails': blogdetails, 'tagdetails': tagdetails})
+
+        latestblog = Blog.objects.latest('id')
+
+        return render(request, self.template_name, {'blogdetails': blogdetails, 'tagdetails': tagdetails, 'latestblog': latestblog})
 
 class Post(TemplateView):
     def get(self, request, **kwargs):
@@ -18,18 +21,20 @@ class Post(TemplateView):
         except:
             post_detail = None        
         tagdetails = Tags.objects.all()
-        return render(request, self.template_name, { 'post_detail': post_detail, 'tagdetails': tagdetails })
+        latestblog = Blog.objects.latest('id')
+        return render(request, self.template_name, { 'post_detail': post_detail, 'tagdetails': tagdetails, 'latestblog': latestblog })
 
 class About(TemplateView):
     def get(self, request, **kwargs):
         tagdetails = Tags.objects.all()
-        return render(request, self.template_name, { 'tagdetails': tagdetails })
+        latestblog = Blog.objects.latest('id')
+        return render(request, self.template_name, { 'tagdetails': tagdetails, 'latestblog': latestblog })
 
 class Contact(TemplateView):
     def get(self, request, **kwargs):
         tagdetails = Tags.objects.all()
-        return render(request, self.template_name, { 'tagdetails': tagdetails })
-
+        latestblog = Blog.objects.latest('id')
+        return render(request, self.template_name, { 'tagdetails': tagdetails, 'latestblog': latestblog })
 
 class Tag(TemplateView):
     def get(self, request, **kwargs):
@@ -42,5 +47,8 @@ class Tag(TemplateView):
             tag_detail = None
 
         blogdetails = Blog.objects.filter(tag_id=tag_id)        
-        return render(request, self.template_name, { 'tagdetails': tagdetails, 'blogdetails': blogdetails, 'tag_detail': tag_detail })
+        
+        latestblog = Blog.objects.latest('id')
+
+        return render(request, self.template_name, { 'tagdetails': tagdetails, 'blogdetails': blogdetails, 'tag_detail': tag_detail, 'latestblog': latestblog })
 

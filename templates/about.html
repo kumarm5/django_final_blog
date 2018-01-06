@@ -17,17 +17,12 @@
             </div>
         </div>
 
-                
         <div class="row">
-            <div class="col-md-9">
-                
+            <div class="col-md-9">                
                 <h2 class="text-center">About me</h2>
-
+                <br>
                 <p>My name is Mukul Kumar, I'm a software developer and researcher from India. At the moment, I'm living in Pune, Maharashtra. I have completed MCA from Pune University. I'm a passionate software developer, currently working with Python and Django. I also worked several years in industry with Java, C♯ and Javascript.</p>
-
-                <p>I created this blog to share some of my thoughts and experience about programming. To be honest, I'm no Python/Django expert, but we all have something good to share. Besides, we learn much more by teaching what we know.</p>
-                
-                
+                <p>I created this blog to share some of my thoughts and experience about programming. To be honest, I'm no Python/Django expert, but we all have something good to share. Besides, we learn much more by teaching what we know.</p>                
             </div>
 
             <div class="col-md-3 sidebar">
@@ -38,7 +33,7 @@
                     </div>
                     <div class="widget-content">
                         <img src="{% static 'images/img_profile.jpg' %}" class="img-fluid">
-                        <h2><a href="#" class="category sidebar-btn">Mukul Kumar</a></h2>
+                        <h2><a href="{% url 'about' %}" class="category sidebar-btn">Mukul Kumar</a></h2>
                         <p>My name is Mukul Kumar, I'm a software developer and researcher from India. At the moment, I'm living in Pune..</p>
                     </div>
                 </div>
@@ -50,9 +45,11 @@
                         <h4>Latest Post</h4>
                     </div>
                     <div class="widget-content">
-                        <img src="{% static 'images/banner.jpg' %}" class="img-fluid">
-                        <h2><a href="#" class="category sidebar-btn">TRAVEL</a></h2>
-                        <p>Unique Pieces In Your Home Decor Is A Fabulous Way To Add Character</p>
+                        <img src="{{ latestblog.post_image.url }}" class="img-fluid">                    
+                        <h2><a href="{% url 'post' post_id=latestblog.id %}" class="category sidebar-btn">{{ latestblog.title }}</a></h2>
+                        {% autoescape off %}
+                            <p>{{ latestblog.short_description }}</p>
+                        {% endautoescape %}
                     </div>
                 </div>
 

@@ -15,15 +15,17 @@
             <div class="col-md-12">
                 <div class="banner">                    
                     <div class="col-md-9 banner_content">
-                        <a href="#" class="category">TRAVEL</a>
+                        <a href="#" class="category sidebar-btn">{{ latestblog.title }}</a>
                         <p>&nbsp;</p>
-                        <h2>Unique Pieces In Your Home Decor Is A Fabulous Way To Add Character</h2>
+                        {% autoescape off %}
+                            <h2>{{ latestblog.short_description }}</h2>
+                        {% endautoescape %}
                         <ul class="post_information">
-							<li><i class="fa fa-user"></i><a href="#">Anna Jupios</a></li>
+							<li><i class="fa fa-user"></i><a href="#">{{ latestblog.user }}</a></li>
 							<li><i class="fa fa-calendar"></i>
-								<time class="post-date" datetime="2017-11-11">11/11/2017</time>
+								<time class="post-date" datetime="2017-11-11">{{ latestblog.created_at|date:'d/m/Y' }}</time>
 							</li>
-							<li><i class="fa fa-comment"></i><a href="#">0 Comments</a></li>
+							<!-- <li><i class="fa fa-comment"></i><a href="#">0 Comments</a></li> -->
                         </ul>                        
                     </div>
                 </div>
@@ -51,7 +53,7 @@
                                     <li><i class="fa fa-calendar"></i>
                                         <time class="post-date" datetime="2017-11-11">{{ blogdetail.created_at|date:'d/m/Y' }}</time>
                                     </li>
-                                    <li><i class="fa fa-comment"></i><a href="#">1 Comment</a></li>
+                                    <!-- <li><i class="fa fa-comment"></i><a href="#">1 Comment</a></li> -->
                                 </ul>
 
                             </div>
@@ -69,7 +71,7 @@
                     </div>
                     <div class="widget-content">
                         <img src="{% static 'images/img_profile.jpg' %}" class="img-fluid">                        
-                        <h2><a href="#" class="category sidebar-btn">Mukul Kumar</a></h2>
+                        <h2><a href="{% url 'about' %}" class="category sidebar-btn">Mukul Kumar</a></h2>
                         <p>My name is Mukul Kumar, I'm a software developer and researcher from India. At the moment, I'm living in Pune..</p>
                     </div>
                 </div>
@@ -81,9 +83,11 @@
                         <h4>Latest Post</h4>
                     </div>
                     <div class="widget-content">
-                        <img src="{% static 'images/banner.jpg' %}" class="img-fluid">                    
-                        <h2><a href="#" class="category sidebar-btn">TRAVEL</a></h2>
-                        <p>Unique Pieces In Your Home Decor Is A Fabulous Way To Add Character</p>
+                        <img src="{{ latestblog.post_image.url }}" class="img-fluid">                    
+                        <h2><a href="{% url 'post' post_id=latestblog.id %}" class="category sidebar-btn">{{ latestblog.title }}</a></h2>
+                        {% autoescape off %}
+                            <p>{{ latestblog.short_description }}</p>
+                        {% endautoescape %}
                     </div>
                 </div>
 
