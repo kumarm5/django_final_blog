@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Search</title>
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br>
+                <p class="text-danger"><i>Thoughts, stories and ideas.</i></p>
+                <hr>
+            </div>
+        </div>
+
+                
+        <div class="row">
+            <div class="col-md-9">
+                <h2 class="text-center">Search</h2>
+                <form method="POST" class="form-inline">
+                    {% csrf_token %}
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="query" class="sr-only">Search</label>
+                        <input type="text" class="form-control" name="query" placeholder="Enter Search">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2">Search</button>
+                </form>
+
+                <div class="mx-sm-3 mb-2">
+                    {% for search_detail in search_details %}
+                        <p><a href="{% url 'post' post_id=search_detail.id %}">{{ search_detail.title }}</a></p>
+                    {% endfor %}
+                </div>                
+
+            </div>
+
+            <div class="col-md-3 sidebar">
+            
+                <div class="widget_content">
+                    <div class="widget-title">
+                        <h4>About Me</h4>
+                    </div>
+                    <div class="widget-content">
+                        <img src="{% static 'images/img_profile.jpg' %}" class="img-fluid">
+                        <h2><a href="{% url 'about' %}" class="category sidebar-btn">Mukul Kumar</a></h2>
+                        <p>My name is Mukul Kumar, I'm a software developer and researcher from India. At the moment, I'm living in Pune..</p>
+                    </div>
+                </div>
+                
+                <hr>
+
+                <div class="widget_content">
+                    <div class="widget-title">
+                        <h4>Latest Post</h4>
+                    </div>
+                    <div class="widget-content">
+                        <img src="{{ latestblog.post_image.url }}" class="img-fluid">                    
+                        <h2><a href="{% url 'post' post_id=latestblog.id %}" class="category sidebar-btn">{{ latestblog.title }}</a></h2>
+                        {% autoescape off %}
+                            <p>{{ latestblog.short_description }}</p>
+                        {% endautoescape %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+            
+    </div>
+{% endblock %}

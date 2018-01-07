@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .models import *
+from django.db.models import Q
 import pdb
 
 # Create your views here.
@@ -52,3 +53,24 @@ class Tag(TemplateView):
 
         return render(request, self.template_name, { 'tagdetails': tagdetails, 'blogdetails': blogdetails, 'tag_detail': tag_detail, 'latestblog': latestblog })
 
+class Search(TemplateView):
+    def get(self, request, **kwargs):
+        latestblog = Blog.objects.latest('id')
+        return render(request, self.template_name, {'latestblog': latestblog})
+    
+    def post(self, request, **kwargs):
+        query = request.POST.get('query')
+
+        try:
+            search_details = Blog.objects.filter(
+                Q(title__icontains=query)|
+                Q(description__icontains=query)|
+                Q(short_description__icontains=query)|
+                Q(user__first_name__icontains=query)|
+                Q(user__last_name__icontains=query)
+                ).distinct()
+        except:
+            search_details = None
+            
+        latestblog = Blog.objects.latest('id')
+        return render(request, self.template_name, {'latestblog': latestblog, 'search_details': search_details })
