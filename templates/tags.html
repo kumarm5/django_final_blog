@@ -12,16 +12,11 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12">
-                <h5 class="text-center">Category: {{ tag_detail.tag_name }}</h5>
-                <hr>
-            </div>
-        </div>
-
-        <div class="row">
 
             <div class="col-md-9">
-                
+                <h3 class="text-center">Category: {{ tag_detail.tag_name }}</h3>
+                <br>
+
                 {% for blogdetail in blogdetails %}
                     <div class="col-md-4 card_container">
                         <div class="card">
@@ -76,7 +71,7 @@
                     </div>
                 </div>
 
-            </div>            
+            </div>
         </div>
     </div>
 {% endblock %}
