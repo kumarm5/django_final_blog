@@ -34,11 +34,11 @@
                                 {% endautoescape %}
                                 
                                 <ul class="post_information">
-                                    <li><i class="fa fa-user"></i><a href="#">{{ blogdetail.user }}</a></li>
+                                    <li><i class="fa fa-tags"></i><a href="#">{{ blogdetail.tag.tag_name }}</a></li>
                                     <li><i class="fa fa-calendar"></i>
                                         <time class="post-date" datetime="2017-11-11">{{ blogdetail.created_at|date:'d/m/Y' }}</time>
                                     </li>
-                                    <li><i class="fa fa-comment"></i><a href="#">1 Comment</a></li>
+                                    <!-- <li><i class="fa fa-comment"></i><a href="#">1 Comment</a></li> -->
                                 </ul>
 
                             </div>
