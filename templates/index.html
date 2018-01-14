@@ -36,7 +36,6 @@
         <div class="row">
 
             <div class="col-md-9">
-                
                 {% for blogdetail in blogdetails %}
                     <div class="col-md-4 card_container">
                         <div class="card">
@@ -93,6 +92,27 @@
 
             </div>
             
+        </div>
+
+        <div class="row">
+            <div class="col-md-9">
+                <div class="text-center">
+                    
+                    {% if blogdetails.has_previous %}
+                        <a href="/page{{ blogdetails.previous_page_number }}">previous</a>
+                    {% endif %}
+            
+                    <span>
+                        Page {{ blogdetails.number }} of {{ blogdetails.paginator.num_pages }}.
+                    </span>
+            
+                    {% if blogdetails.has_next %}
+                        <a href="/page{{ blogdetails.next_page_number }}">next</a>
+                    {% endif %}
+                    
+                </div>
+
+            </div>
         </div>
 
     </div>
