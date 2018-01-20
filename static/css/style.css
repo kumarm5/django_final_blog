@@ -133,12 +133,13 @@ body{
     text-decoration: none;    
 }
 
-.footer_news{
-    color: #999;
+.social_icon{
+    color: #F83A3A;
+    margin: 5px;
 }
 
-.footer_news:hover{
-    color: #fff;
+.social_icon:hover{
+    color: #F83A3A;
 }
 
 .navbar-footer{
