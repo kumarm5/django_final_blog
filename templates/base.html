@@ -63,11 +63,11 @@
                 </div>
                 
             </nav>
-
+            
             {% block content %}
 
-            {% endblock %}
-            
+            {% endblock %}            
+        
             <div class="footer">
                 <div class="container">
                     <div class="row">
@@ -118,9 +118,11 @@
                 </div>
             </nav>
             
-            <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
-            <script src="{% static 'js/popper.min.js' %}"></script>
-            <script src="{% static 'js/bootstrap.min.js' %}"></script>
+            {% block footer %}
+                <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+                <script src="{% static 'js/popper.min.js' %}"></script>
+                <script src="{% static 'js/bootstrap.min.js' %}"></script>
+            {% endblock %}
 
         </body>
 	</html>

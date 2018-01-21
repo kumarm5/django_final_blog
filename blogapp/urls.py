@@ -12,3 +12,4 @@ urlpatterns = [
     url(r'^tag/(?P<tag_id>\d+)/$', views.Tag.as_view(template_name='tags.html'), name='tags'),
     url(r'^tag/(?P<tag_id>\d+)/(?P<num>[0-9]+)$', views.Tag.as_view(template_name='tags.html'), name='tag_page'),
 ]
+

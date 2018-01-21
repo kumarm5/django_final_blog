@@ -39,7 +39,7 @@
                 {% for blogdetail in blogdetails %}
                     <div class="col-md-4 card_container">
                         <div class="card">
-                            <img class="card-img-top" src="{{ blogdetail.post_image.url }}" alt="Card image cap">
+                            <a href="{% url 'post' post_id=blogdetail.id %}"><img class="card-img-top" src="{{ blogdetail.post_image.url }}" alt="Card image cap"></a>
                             <div class="card-body">
                                 <h4><a href="{% url 'post' post_id=blogdetail.id %}" class="card-title">{{ blogdetail.title }}</a></h4>
                                 
@@ -116,4 +116,8 @@
         </div>
 
     </div>
+{% endblock %}
+
+{% block footer %}
+    {{ block.super }}
 {% endblock %}

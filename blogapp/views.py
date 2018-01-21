@@ -104,3 +104,9 @@ class Search(TemplateView):
             
         latestblog = Blog.objects.latest('id')
         return render(request, self.template_name, {'latestblog': latestblog, 'search_details': search_details })
+
+
+class Error(TemplateView):
+    # error page functions
+    def get(self, request, *args):
+        return render(request, 'error.html', {})

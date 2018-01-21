@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Error</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br><br>
+                <h3>Page Not Found</h3>
+                <h5>The page you are looking for was not found on our servers.!!!</h5>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {{ block.super }}
+
+    <script>
+        $(document).ready(function(){
+            winheight = parseInt($(window).height());
+            // footer height
+            footerheight = $('.footer').height();
+            footerheight = parseInt(footerheight) + 182;
+            contentheight = winheight - footerheight;
+            $('#content').height(contentheight+'px');
+        });
+    </script>
+    
+{% endblock %}
