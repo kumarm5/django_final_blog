@@ -204,12 +204,12 @@ a:hover{
     bottom: 0;
     background-color: #fff;    
     z-index: 99;    
-  }
+}
   
-  #status {
+#status {
     position: absolute;
-    left: 48%;    
+    left: 44%;    
     top: 45%;
     background-repeat: no-repeat;
     background-position: center;    
-  }
+}
