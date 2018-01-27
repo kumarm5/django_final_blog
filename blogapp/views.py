@@ -16,6 +16,7 @@ class Home(TemplateView):
             page = None
         
         paginator = Paginator(blogdetail_list, 6)
+        
         try:
             blogdetails = paginator.page(page)
         except PageNotAnInteger:
@@ -24,8 +25,11 @@ class Home(TemplateView):
             blogdetails = paginator.page(paginator.num_pages)
             
         # get the latest blog details
-        latestblog = Blog.objects.latest('id')
-        
+        try:
+            latestblog = Blog.objects.latest('id')
+        except:
+            latestblog = None
+
         return render(request, self.template_name, {'blogdetails': blogdetails, 'tagdetails': tagdetails, 'latestblog': latestblog})
 
 class Post(TemplateView):
@@ -36,7 +40,7 @@ class Post(TemplateView):
         except:
             post_detail = None        
         tagdetails = Tags.objects.all()
-        latestblog = Blog.objects.latest('id')
+        latestblog = Blog.objects.latest('id')        
         return render(request, self.template_name, { 'post_detail': post_detail, 'tagdetails': tagdetails, 'latestblog': latestblog })
 
 class About(TemplateView):
