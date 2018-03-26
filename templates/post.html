@@ -33,7 +33,15 @@
                         <p>{{ post_detail.description }}</p>
                     {% endautoescape %}
                 </div>
-
+                <br>
+                <hr>
+                <div class="float-right">
+                    <span><strong>Share this post </strong></span>
+                    <a href="javascript:void(0);" class="social_icon"><i class="fa fa-2x fa-facebook-square" aria-hidden="true"></i></a>
+                    <a href="javascript:void(0);" class="social_icon"><i class="fa fa-2x fa-twitter-square" aria-hidden="true"></i></a>
+                    <a href="javascript:void(0);" class="social_icon"><i class="fa fa-2x fa-linkedin-square" aria-hidden="true"></i></a>
+                </div>
+                <br><br>
                 <div id="disqus_thread"></div>
 
             </div>
@@ -80,13 +88,13 @@
         *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
         
         var disqus_config = function () {
-            this.page.url = 'http://18.216.155.60/post/{{ post_detail.pk }}';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.url = 'http://techbloging.in/post/{{ post_detail.pk }}';  // Replace PAGE_URL with your page's canonical URL variable
             this.page.identifier = '/post/{{ post_detail.pk }}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
         };
         
         (function() { // DON'T EDIT BELOW THIS LINE
             var d = document, s = d.createElement('script');
-            s.src = 'https://mak-3.disqus.com/embed.js';
+            s.src = 'https://techbloging.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
         })();
