@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from .models import *
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-import pdb
+
 
 # Create your views here.
 class Home(TemplateView):
@@ -32,6 +32,7 @@ class Home(TemplateView):
 
         return render(request, self.template_name, {'blogdetails': blogdetails, 'tagdetails': tagdetails, 'latestblog': latestblog})
 
+
 class Post(TemplateView):
     def get(self, request, **kwargs):
         post_id = int(kwargs['post_id'])        
@@ -43,17 +44,20 @@ class Post(TemplateView):
         latestblog = Blog.objects.latest('id')        
         return render(request, self.template_name, { 'post_detail': post_detail, 'tagdetails': tagdetails, 'latestblog': latestblog })
 
+
 class About(TemplateView):
     def get(self, request, **kwargs):
         tagdetails = Tags.objects.all()
         latestblog = Blog.objects.latest('id')
         return render(request, self.template_name, { 'tagdetails': tagdetails, 'latestblog': latestblog })
 
+
 class Contact(TemplateView):
     def get(self, request, **kwargs):
         tagdetails = Tags.objects.all()
         latestblog = Blog.objects.latest('id')
         return render(request, self.template_name, { 'tagdetails': tagdetails, 'latestblog': latestblog })
+
 
 class Tag(TemplateView):
     def get(self, request, **kwargs):
@@ -86,6 +90,7 @@ class Tag(TemplateView):
         latestblog = Blog.objects.latest('id')
         
         return render(request, self.template_name, { 'tagdetails': tagdetails, 'blogdetails': blogdetails, 'tag_detail': tag_detail, 'latestblog': latestblog })
+
 
 class Search(TemplateView):
     def get(self, request, **kwargs):
